@@ -6,7 +6,7 @@ function handle(): void
 {
     global $conn, $err, $result;
 
-    if (!$_SERVER["REQUEST_METHOD"] === "GET") {
+    if ($_SERVER["REQUEST_METHOD"] !== "GET") {
         $err = "Invalid request method.";
         http_response_code(405);
         return;
