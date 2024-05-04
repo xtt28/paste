@@ -32,12 +32,13 @@ function handle(): void
 }
 
 handle();
+if (isset($err)) {
+    echo $err;
+    include "../layout/bottom.php";
+    return;
+}
 ?>
 
-<?php if (empty($err)): ?>
-    <pre><?= htmlspecialchars($result["content"]) ?></pre>
-<?php else: ?>
-    Paste not found.
-<?php endif ?>
+<pre><?= htmlspecialchars($result["content"]) ?></pre>
 
 <?php include "../layout/bottom.php" ?>
