@@ -77,17 +77,19 @@ handle();
     <p><?= $err ?></p>
 <?php endif ?>
 <form action="/pastes/create.php" method="post">
-    <div>
-        <label for="content">Content</label>
-        <div>
-            <textarea name="content" id="content" required></textarea>
+    <div class="field">
+        <label class="label" for="content">Content</label>
+        <div class="control">
+            <textarea class="textarea" name="content" id="content" required></textarea>
         </div>
     </div>
-    <div>
-        <label for="expires-at">Expiry date</label>
-        <input type="date" name="expires-at" id="expires-at" min="<?= $today ?>">
+    <div class="field">
+        <label class="label" for="expires-at">Expiry date</label>
+        <div class="control">
+            <input class="input select" type="date" name="expires-at" id="expires-at" min="<?= $today ?>">
+        </div>
     </div>
-    <button>Create</button>
+    <button class="button is-primary">Create</button>
 </form>
 
 <?php include "../layout/bottom.php" ?>
