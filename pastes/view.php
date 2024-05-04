@@ -1,4 +1,5 @@
 <?php
+$title = "Viewing paste";
 include "../layout/top.php";
 include "../db.php";
 

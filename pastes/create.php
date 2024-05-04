@@ -1,4 +1,5 @@
 <?php
+$title = "Create a paste";
 include "../layout/top.php";
 include "../db.php";
 
