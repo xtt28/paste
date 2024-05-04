@@ -20,7 +20,11 @@ $schema = "CREATE TABLE IF NOT EXISTS `pastes` (
     `delete_token` CHAR(16) NOT NULL DEFAULT (LEFT(REPLACE(UUID(), '-', ''), 16)),
     `content` MEDIUMTEXT NOT NULL CHECK(LENGTH(`content`) <= 400000),
     PRIMARY KEY(`id`)
-)";
+);
+
+CREATE OR REPLACE VIEW `available_pastes` AS
+SELECT * FROM `pastes`
+WHERE `expires_at` IS NULL OR `expires_at` > CURRENT_TIMESTAMP;";
 
 try {
     $conn->exec($schema);

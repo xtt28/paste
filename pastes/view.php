@@ -13,9 +13,7 @@ function handle(): void
     }
 
     $paste_id = $_GET["id"];
-    $stmt = $conn->prepare("SELECT * FROM `pastes`
-    WHERE `id` = :id AND (`expires_at` IS NULL OR `expires_at` > CURRENT_TIMESTAMP)
-    LIMIT 1");
+    $stmt = $conn->prepare("SELECT * FROM `available_pastes` WHERE `id` = :id LIMIT 1");
     $stmt->execute(["id" => $paste_id]);
 
     if ($stmt->rowCount() === 0) {
