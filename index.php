@@ -1,3 +1,3 @@
-<?php include "layout/top.php" ?>
-
-<?php include "layout/bottom.php" ?>
+<?php
+header("Location: /pastes/create.php");
+?>
