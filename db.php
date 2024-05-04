@@ -1,9 +1,11 @@
 <?php
 
-$hostname = "localhost";
-$database = "paste";
-$username = "root";
-$password = "";
+$config = include("config.php");
+
+$hostname = "{$config["db_host"]}:{$config["db_port"]}";
+$database = $config["db_name"];
+$username = $config["db_user"];
+$password = $config["db_password"];
 
 try {
     $conn = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
