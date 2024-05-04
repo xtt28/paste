@@ -88,6 +88,7 @@ handle();
         <div class="control">
             <input class="input select" type="date" name="expires-at" id="expires-at" min="<?= $today ?>">
         </div>
+        <p class="help">Leave this blank and your paste won't expire.</p>
     </div>
     <button class="button is-primary">Create</button>
 </form>
