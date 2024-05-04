@@ -2,6 +2,8 @@
 include "../layout/top.php";
 include "../db.php";
 
+$today = date("Y-m-d");
+
 function is_date_valid(string $date): bool
 {
     $as_timestamp = strtotime($date);
@@ -14,7 +16,7 @@ function is_date_valid(string $date): bool
 
 function handle(): void
 {
-    global $conn, $err;
+    global $conn, $err, $today;
 
     if ($_SERVER["REQUEST_METHOD"] !== "POST") {
         return;
@@ -25,6 +27,12 @@ function handle(): void
 
     if (empty($content) || (!empty($expiry) && !is_date_valid($expiry))) {
         $err = "Invalid POST data.";
+        http_response_code(400);
+        return;
+    }
+
+    if ($expiry < $today) {
+        $err = "Expiration date is too early.";
         http_response_code(400);
         return;
     }
@@ -71,7 +79,7 @@ handle();
     </div>
     <div>
         <label for="expires-at">Expiry date</label>
-        <input type="date" name="expires-at" id="expires-at" min="<?= (new DateTime("tomorrow"))->format("Y-m-d") ?>">
+        <input type="date" name="expires-at" id="expires-at" min="<?= $today ?>">
     </div>
     <button>Create</button>
 </form>
