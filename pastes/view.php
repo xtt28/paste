@@ -30,7 +30,7 @@ handle();
 ?>
 
 <?php if (empty($err)): ?>
-    <pre><?= $result["content"] ?></pre>
+    <pre><?= htmlspecialchars($result["content"]) ?></pre>
 <?php else: ?>
     Paste not found.
 <?php endif ?>
