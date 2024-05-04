@@ -14,7 +14,7 @@ try {
 }
 
 $schema = "CREATE TABLE IF NOT EXISTS `pastes` (
-    `id` CHAR(8) NOT NULL DEFAULT (LEFT(REPLACE(UUID(), '-', ''), 8)),
+    `id` INT NOT NULL AUTO_INCREMENT,
     `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `expires_at` DATETIME,
     `delete_token` CHAR(16) NOT NULL DEFAULT (LEFT(REPLACE(UUID(), '-', ''), 16)),

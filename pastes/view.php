@@ -12,7 +12,12 @@ function handle(): void
         return;
     }
 
-    $paste_id = $_GET["id"];
+    $paste_id = intval($_GET["id"]);
+    if ($paste_id < 1) {
+        $err = "Invalid ID.";
+        http_response_code(400);
+        return;
+    }
     $stmt = $conn->prepare("SELECT * FROM `available_pastes` WHERE `id` = :id LIMIT 1");
     $stmt->execute(["id" => $paste_id]);
 
