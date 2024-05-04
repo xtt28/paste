@@ -67,7 +67,12 @@ function handle(): void
 handle();
 ?>
 
-<h1>Create a paste</h1>
+<section class="hero">
+    <div class="hero-body">
+        <h1 class="title">Free Online Pastebin</h1>
+        <p class="subtitle">Quickly share text with custom expiry date.</p>
+    </div>
+</section>
 <?php if ($err): ?>
     <p><?= $err ?></p>
 <?php endif ?>
