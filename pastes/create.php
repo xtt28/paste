@@ -39,7 +39,20 @@ function handle(): void
         return;
     }
 
-    header("Location: /pastes/view.php?id={$conn->lastInsertId()}");
+    $id = $conn->lastInsertId();
+    try {
+        $stmt = $conn->prepare("SELECT `delete_token` FROM `pastes` WHERE `id` = :id");
+        $stmt->execute(["id" => $id]);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $result = $stmt->fetch();
+    } catch (PDOException $e) {
+        error_log("Could not query newly saved paste: $e");
+        $err = "Could not get newly saved paste information.";
+        http_response_code(500);
+        return;
+    }
+
+    header("Location: /pastes/view.php?id=$id&token={$result["delete_token"]}");
 }
 
 handle();
