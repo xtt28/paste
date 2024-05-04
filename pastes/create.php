@@ -74,7 +74,9 @@ handle();
     </div>
 </section>
 <?php if ($err): ?>
-    <p><?= $err ?></p>
+    <div class="notification is-danger">
+        <?= $err ?>
+    </div>
 <?php endif ?>
 <form action="/pastes/create.php" method="post">
     <div class="field">
