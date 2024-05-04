@@ -39,6 +39,14 @@ if (isset($err)) {
 }
 ?>
 
+<?php if (!empty($_GET["token"])): ?>
+    <form action="/pastes/delete.php" method="post">
+        <input type="hidden" name="id" value="<?= $_GET["id"] ?>">
+        <input type="hidden" name="delete-token" value="<?= $_GET["token"] ?>">
+        <button>Delete</button>
+    </form>
+<?php endif ?>
+
 <pre><?= htmlspecialchars($result["content"]) ?></pre>
 
 <?php include "../layout/bottom.php" ?>
