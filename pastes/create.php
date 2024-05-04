@@ -70,7 +70,7 @@ handle();
 <section class="hero">
     <div class="hero-body">
         <h1 class="title">Free Online Pastebin</h1>
-        <p class="subtitle">Quickly share text with custom expiry date.</p>
+        <p class="subtitle">Seamlessly share code and text.</p>
     </div>
 </section>
 <?php if ($err): ?>
