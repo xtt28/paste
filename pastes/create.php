@@ -28,7 +28,7 @@ handle();
     </div>
     <div>
         <label for="expires-at">Expiry date</label>
-        <input type="date" name="expires-at" id="expires-at">
+        <input type="date" name="expires-at" id="expires-at" min="<?= (new DateTime("tomorrow"))->format("Y-m-d") ?>">
     </div>
     <button>Create</button>
 </form>
