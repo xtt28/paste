@@ -32,7 +32,7 @@ function handle(): void
         return;
     }
 
-    if ($expiry < $today) {
+    if (!empty($expiry) && $expiry < $today) {
         $err = "Expiration date is too early.";
         http_response_code(400);
         return;
