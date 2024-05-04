@@ -17,8 +17,6 @@ function handle(): void
     global $conn, $err;
 
     if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-        $err = "Invalid request method.";
-        http_response_code(405);
         return;
     }
 
