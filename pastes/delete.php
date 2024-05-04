@@ -40,4 +40,3 @@ handle();
 if (isset($err)) {
     echo $err;
 }
-?>
