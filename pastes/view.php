@@ -40,13 +40,19 @@ if (isset($err)) {
 }
 ?>
 
-<?php if (!empty($_GET["token"])): ?>
-    <form action="/pastes/delete.php" method="post">
-        <input type="hidden" name="id" value="<?= $_GET["id"] ?>">
-        <input type="hidden" name="delete-token" value="<?= $_GET["token"] ?>">
-        <button>Delete</button>
-    </form>
-<?php endif ?>
+<section class="hero">
+    <div class="hero-body">
+        <h1 class="title">Paste #<?= $result["id"] ?></h1>
+        <p class="subtitle">Created <?= $result["created_at"] ?></p>
+        <?php if (!empty($_GET["token"])) : ?>
+            <form action="/pastes/delete.php" method="post">
+                <input type="hidden" name="id" value="<?= $_GET["id"] ?>">
+                <input type="hidden" name="delete-token" value="<?= $_GET["token"] ?>">
+                <button class="button is-danger">Delete</button>
+            </form>
+        <?php endif ?>
+    </div>
+</section>
 
 <pre><?= htmlspecialchars($result["content"]) ?></pre>
 
