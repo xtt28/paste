@@ -1,4 +1,4 @@
-# Civitas
+# Paste
 
 A pastebin written in PHP.
 
